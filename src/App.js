@@ -40,6 +40,15 @@ class App extends React.Component {
     })
   }
 
+  handleTodosCompleted = () => {
+    const newTodos = this.state.todos.filter((todo) => {
+      return (!todo.completed)
+    })
+    this.setState({
+      todos: newTodos
+    })
+  }
+
   render() {
     return (
       <div>
@@ -47,7 +56,7 @@ class App extends React.Component {
           <h2>Todo List: MVP!</h2>
           <TodoList todos={this.state.todos} handleTodoToggle={this.handleTodoToggle} />
         </div>
-        <TodoForm handleTodoAdd={this.handleTodoAdd} />
+        <TodoForm handleTodoAdd={this.handleTodoAdd} handleTodosCompleted={this.handleTodosCompleted} />
       </div>
     );
   }

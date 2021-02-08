@@ -22,6 +22,10 @@ class TodoForm extends Component {
         })
     }
 
+    handleClick = () => {
+        this.props.handleTodosCompleted();
+    }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
