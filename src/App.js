@@ -15,7 +15,17 @@ class App extends React.Component {
     }
   }
 
-
+  handleTodoAdd = (todoName) => {
+    const todo = {
+      name: todoName,
+      id: new Date().getTime().toString(),
+      completed: false
+    }
+    const newTodos = [...this.state.todos, todo];
+    this.setState({
+      todos: newTodos
+    })
+  }
 
   render() {
     return (
@@ -24,7 +34,7 @@ class App extends React.Component {
           <h2>Todo List: MVP!</h2>
           <TodoList todos={this.state.todos} />
         </div>
-        <TodoForm />
+        <TodoForm handleTodoAdd={this.handleTodoAdd} />
       </div>
     );
   }
